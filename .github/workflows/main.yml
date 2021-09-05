@@ -42,21 +42,6 @@ jobs:
         make bsp
         mv polishedcrystal-3.0.0-beta.bsp build/polishedcrystal-savepatch-3.0.0-beta.bsp
         popd
-    - name: Delete old release
-      id: delete_release
-      uses: jagger27/delete-release@master
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        tag_name: v3.0.0-beta-nightly
-    - name: Advance nightly tag to master
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: |
-        pushd polishedcrystal
-        git tag v3.0.0-beta-nightly -f
-        git push --tags -f "https://FieryMewtwo:$GITHUB_TOKEN@github.com/FieryMewtwo/polishedcrystal.git"
-        popd
     - name: Create new release
       id: create_release
       uses: actions/create-release@v1.1.4
