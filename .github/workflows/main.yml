@@ -18,9 +18,9 @@ jobs:
         pushd rgbds
         sudo make install
         popd
-    - name: Build Rangi42/polishedcrystal
+    - name: Build FieryMewtwo/polishedcrystal
       run: |
-        git clone https://github.com/Rangi42/polishedcrystal.git
+        git clone https://github.com/FieryMewtwo/polishedcrystal.git
         pushd polishedcrystal
         mkdir build
         make -j4
@@ -55,7 +55,7 @@ jobs:
       run: |
         pushd polishedcrystal
         git tag v3.0.0-beta-nightly -f
-        git push --tags -f "https://Rangi42:$GITHUB_TOKEN@github.com/Rangi42/polishedcrystal.git"
+        git push --tags -f "https://FieryMewtwo:$GITHUB_TOKEN@github.com/FieryMewtwo/polishedcrystal.git"
         popd
     - name: Create new release
       id: create_release
